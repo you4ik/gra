@@ -13,7 +13,7 @@ jobs:
     - name: Set up JDK 8
       uses: actions/setup-java@v2
       with:
-        distribution: 'adopt' # Выберите дистрибутив JDK, например, 'adopt', 'zulu', 'temurin' и т.д.
+        distribution: 'adopt'
         java-version: 8
 
     - name: Install dependencies
@@ -23,10 +23,11 @@ jobs:
 
     - name: Set up repo
       run: |
-        mkdir ~/bin
-        PATH=~/bin:$PATH
+        mkdir -p ~/bin
         curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
         chmod a+x ~/bin/repo
+        echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
+        source ~/.bashrc
 
     - name: Initialize repo
       run: |
