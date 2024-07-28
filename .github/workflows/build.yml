@@ -32,7 +32,7 @@ jobs:
       run: |
         mkdir -p ~/grapheneos
         cd ~/grapheneos
-        repo init -u https://github.com/GrapheneOS/platform_manifest.git -b ten
+        repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13
         repo sync -c -j4
 
     - name: Start build
